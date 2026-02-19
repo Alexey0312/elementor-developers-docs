@@ -131,6 +131,23 @@ function my_query_by_post_status( $query ) {
 add_action( 'elementor/query/{$query_id}', 'my_query_by_post_status' );
 ```
 
+### Increase the Number of Posts in a Posts Widget
+
+Use the following to change the number of displayed posts in a posts widget:
+
+```php
+/**
+ * Update the query to set how mamy posts to display.
+ *
+ * @since 1.0.0
+ * @param \WP_Query $query The WordPress query instance.
+ */
+function my_query_posts_per_page( $query ) {
+	$query->set( 'posts_per_page', 20 );
+}
+add_action( 'elementor/query/{$query_id}', 'my_query_posts_per_page' );
+```
+
 ## Notes
 
 You may need to refresh the [editor](./../editor/) to see the filter's effect.
